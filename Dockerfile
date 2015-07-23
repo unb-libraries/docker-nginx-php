@@ -1,4 +1,5 @@
 FROM phusion/baseimage
+MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
 RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
