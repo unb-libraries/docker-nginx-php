@@ -5,7 +5,8 @@ Docker container : leverages phusion/baseimage to deploy a baseline FastCGI PHP 
 ```
 docker run \
        --rm \
-       --name nginx-phpt \
+       --name nginx-php \
+       -v /local/dir:/usr/share/nginx \
        -p 80:80 \
        unblibraries/nginx-php
 ```
