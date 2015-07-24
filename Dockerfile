@@ -11,6 +11,7 @@ RUN apt-get update && \
   DEBIAN_FRONTEND="noninteractive" apt-get install --yes php5-cli php5-fpm php5-mysql php5-pgsql php5-sqlite php5-curl \
      php5-gd php5-mcrypt php5-intl php5-imap php5-tidy
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install --yes nginx
+RUN service nginx stop
 
 ADD conf/default.conf   /etc/nginx/sites-available/default
 
