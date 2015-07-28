@@ -14,7 +14,7 @@ RUN apt-get update && \
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install --yes nginx
 RUN service nginx stop
 
-ADD conf/default.conf   /etc/nginx/sites-available/default
+ADD conf/nginx/default.conf   /etc/nginx/sites-available/default
 
 ADD init/ /etc/my_init.d/
 ADD services/ /etc/service/
