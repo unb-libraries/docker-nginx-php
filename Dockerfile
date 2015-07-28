@@ -8,8 +8,9 @@ ENV LC_ALL     en_US.UTF-8
 CMD ["/sbin/my_init"]
 
 RUN apt-get update && \
-  DEBIAN_FRONTEND="noninteractive" apt-get install --yes php5-cli php5-fpm php5-mysql php5-pgsql php5-sqlite php5-curl \
-     php5-gd php5-mcrypt php5-intl php5-imap php5-tidy
+  DEBIAN_FRONTEND="noninteractive" apt-get install --yes php5-cli php5-fpm \
+  php5-mysql php5-pgsql php5-sqlite php5-curl php5-gd php5-mcrypt php5-intl \
+  php5-imap php5-tidy
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install --yes nginx
 RUN service nginx stop
 
