@@ -1,6 +1,8 @@
 FROM phusion/baseimage
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
+ENV COMPOSER_PATH=/usr/bin
+
 RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
@@ -13,6 +15,9 @@ RUN apt-get update && \
   php5-imap php5-tidy
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install --yes nginx
 RUN service nginx stop
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer
 
 ADD conf/nginx/default.conf /etc/nginx/sites-available/default
 ADD conf/php5/fpm/php.ini /etc/php5/fpm/php.ini
