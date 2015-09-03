@@ -9,6 +9,7 @@ ENV WEBTREE_WEBROOT $WEBTREE_ROOT/html
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+ENV PHP_TIMEZONE UTC
 
 # Install nginx and php-fpm packages.
 RUN apt-get update && \
