@@ -5,7 +5,7 @@ ENV COMPOSER_PATH=/usr/bin
 ENV WEBTREE_ROOT /usr/share/nginx
 ENV WEBTREE_WEBROOT $WEBTREE_ROOT/html
 
-# Locate setup
+# Locale setup
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
