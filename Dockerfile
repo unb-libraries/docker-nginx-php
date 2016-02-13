@@ -5,12 +5,6 @@ ENV COMPOSER_PATH=/usr/bin
 ENV WEBTREE_ROOT /usr/share/nginx
 ENV WEBTREE_WEBROOT $WEBTREE_ROOT/html
 
-# Locale setup
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV PHP_TIMEZONE UTC
-
 # Install nginx and php-fpm packages.
 RUN apt-get update && \
   DEBIAN_FRONTEND="noninteractive" apt-get install --yes php5-cli php5-fpm \
