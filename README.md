@@ -1,4 +1,5 @@
-# unblibraries/nginx-php
+# unblibraries/nginx-php [![](https://badge.imagelayers.io/unblibraries/nginx-php:latest.svg)](https://imagelayers.io/?images=unblibraries/nginx-php:latest 'Get your own badge on imagelayers.io')
+
 Docker image : leverages phusion/baseimage to deploy a baseline FastCGI PHP supported Nginx container.
 
 ## Usage
