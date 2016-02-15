@@ -1,6 +1,6 @@
-# unblibraries/nginx-php [![](https://badge.imagelayers.io/unblibraries/nginx-php:latest.svg)](https://imagelayers.io/?images=unblibraries/nginx-php:latest 'Get your own badge on imagelayers.io')
+# unblibraries/nginx-php:alpine [![](https://badge.imagelayers.io/unblibraries/nginx-php:alpine.svg)](https://imagelayers.io/?images=unblibraries/nginx-php:alpine 'Get your own badge on imagelayers.io')
 
-Docker image : leverages phusion/baseimage to deploy a baseline FastCGI PHP supported Nginx container.
+Deploy a baseline FastCGI PHP supported Nginx app.
 
 ## Usage
 ```
@@ -9,7 +9,7 @@ docker run \
        --name nginx-php \
        -v /local/dir:/usr/share/nginx \
        -p 80:80 \
-       unblibraries/nginx-php
+       unblibraries/nginx-php:alpine
 ```
 
 ## License
@@ -17,6 +17,3 @@ docker run \
   - http://opensource.org/licenses/mit-license.html
 - Attribution is not required, but much appreciated:
   - `Nginx PHP Docker Image by UNB Libraries`
-
-## Credit
-- Original work for this image was based on that of [Chris Fidao](https://github.com/fideloper/docker-nginx-php).c
