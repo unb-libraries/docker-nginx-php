@@ -6,7 +6,7 @@ ENV PHP_FPM_ERROR_LOG ${APP_LOG_DIR}/${APP_HOSTNAME}.php.error.log
 
 RUN apk --update add php-fpm php-json php-zlib php-xml php-phar php-gd php-iconv php-mcrypt curl php-curl php-openssl && \
   rm -f /var/cache/apk/* && \
-  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer && \
   chmod +x /var/lib/nginx -R
 
 COPY conf/nginx/app.conf /etc/nginx/conf.d/app.conf
