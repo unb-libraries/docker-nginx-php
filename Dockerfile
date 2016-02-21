@@ -8,11 +8,11 @@ RUN apk --update add php-fpm php-json php-zlib php-xml php-phar php-gd php-iconv
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
   chmod +x /var/lib/nginx -R
 
-ADD conf/nginx/app.conf /etc/nginx/conf.d/app.conf
-ADD conf/php/php.ini /etc/php/php.ini
-ADD conf/php/php-fpm.conf /etc/php/php-fpm.conf
+COPY conf/nginx/app.conf /etc/nginx/conf.d/app.conf
+COPY conf/php/php.ini /etc/php/php.ini
+COPY conf/php/php-fpm.conf /etc/php/php-fpm.conf
 
-ADD scripts /scripts
+COPY scripts /scripts
 RUN chmod -R 755 /scripts
 
 CMD ["/scripts/run.sh"]
