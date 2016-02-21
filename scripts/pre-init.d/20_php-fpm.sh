@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 if [ "$DEPLOY_ENV" = "dev" ]; then
   sed -i "s|PHP_FPM_ERROR_LOG|/proc/self/fd/2|g" /etc/php/php-fpm.conf
 else
