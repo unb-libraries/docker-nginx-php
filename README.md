@@ -1,6 +1,6 @@
 # unblibraries/nginx-php:alpine [![](https://badge.imagelayers.io/unblibraries/nginx-php:alpine.svg)](https://imagelayers.io/?images=unblibraries/nginx-php:alpine 'Get your own badge on imagelayers.io')
 
-Deploy a baseline FastCGI PHP supported Nginx app.
+Deploy a baseline ```php-fpm``` supported ```nginx``` app container with ```composer``` support.
 
 ## Usage
 ```
