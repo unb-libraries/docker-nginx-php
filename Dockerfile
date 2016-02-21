@@ -15,5 +15,3 @@ COPY conf/php/php-fpm.conf /etc/php/php-fpm.conf
 
 COPY scripts /scripts
 RUN chmod -R 755 /scripts
-
-CMD ["/scripts/run.sh"]
