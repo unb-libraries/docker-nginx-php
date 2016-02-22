@@ -7,7 +7,7 @@ Deploy a baseline ```php-fpm``` supported ```nginx``` app container with ```comp
 docker run \
        --rm \
        --name nginx-php \
-       -v /local/dir:/usr/share/nginx \
+       -v /local/dir:/app/html \
        -p 80:80 \
        unblibraries/nginx-php:alpine
 ```
