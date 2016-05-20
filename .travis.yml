@@ -12,7 +12,7 @@ before_install:
 
 before_script:
   - docker pull unblibraries/nginx-php:alpine
-  - 'sed -i "s|image: unblibraries/nginx-php:alpine|build: .|g" docker-compose.yml'
+  - 'sed -i "s|image: unblibraries/nginx-php:alpine-php7|build: .|g" docker-compose.yml'
   - 'echo "  volumes:" >> docker-compose.yml'
   - 'echo "    - ./travis/htdocs:/app/html" >> docker-compose.yml'
 
