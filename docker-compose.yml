@@ -1,5 +1,5 @@
 web:
-  image: unblibraries/nginx-php:alpine
+  image: unblibraries/nginx-php:alpine-php7
   expose:
    - "80"
   ports:
