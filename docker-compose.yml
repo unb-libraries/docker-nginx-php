@@ -1,0 +1,8 @@
+web:
+  image: unblibraries/nginx-php:alpine
+  expose:
+   - "80"
+  ports:
+    - "80:80"
+  env_file:
+    - ./env/nginx.env
