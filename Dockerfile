@@ -10,8 +10,7 @@ RUN apk --update add php7-fpm@testing php7-json@testing php7-zlib@testing php7-x
   mkdir -p /var/run/php/ && \
   chown ${NGINX_RUN_USER}:${NGINX_RUN_GROUP} /var/run/php/ && \
   ln -s /usr/bin/php7 /usr/bin/php && \
-  curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer && \
-  chmod +x /var/lib/nginx -R
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer
 
 COPY conf/nginx/app.conf /etc/nginx/conf.d/app.conf
 COPY conf/php/php.ini /etc/php7/php.ini
