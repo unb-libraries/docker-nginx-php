@@ -1,8 +1,11 @@
-web:
-  image: unblibraries/nginx-php:alpine-php7
-  expose:
-   - "80"
-  ports:
-    - "80:80"
-  env_file:
-    - ./env/nginx.env
+version: '2'
+
+services:
+  web:
+    image: unblibraries/nginx-php:alpine-php7
+    expose:
+     - "80"
+    ports:
+      - "80:80"
+    env_file:
+      - ./env/nginx.env
