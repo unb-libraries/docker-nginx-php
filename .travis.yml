@@ -4,25 +4,30 @@ services:
 
 env:
   global:
-    - DOCKER_VERSION=1.10.1-0~trusty
-    - DOCKER_COMPOSE_VERSION=1.6.0
+    - APP_WEBROOT=/app/html
+    - DOCKER_COMPOSE_VERSION=1.7.1
+    - DOCKER_CORE_VERSION=1.10.1-0~trusty
+    - DOCKER_IMAGE_NAME=unblibraries/nginx-php
+    - DOCKER_IMAGE_PARENT=unblibraries/nginx:alpine
+    - DOCKER_IMAGE_TAG=alpine
+    - ENDPOINT_NAME=Nginx
 
 before_install:
-  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=${DOCKER_VERSION}
+  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine="${DOCKER_CORE_VERSION}"
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - docker pull unblibraries/nginx-php:alpine
-  - 'sed -i "s|image: unblibraries/nginx-php:alpine|build: .|g" docker-compose.yml'
-  - 'echo "  volumes:" >> docker-compose.yml'
-  - 'echo "    - ./travis/htdocs:/app/html" >> docker-compose.yml'
+  - docker pull "$DOCKER_IMAGE_PARENT"
+  - 'sed -i "s|image: $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG|build: .|g" docker-compose.yml'
+  - 'echo "    volumes:" >> docker-compose.yml'
+  - 'echo "      - ./travis/htdocs:$APP_WEBROOT" >> docker-compose.yml'
 
 script:
   - docker-compose build
   - docker-compose up -d
-  - travis/waitForNginxDeploy.sh
+  - travis/waitForDeploy.sh
   - travis/testPHP.sh
 
 after_success:
