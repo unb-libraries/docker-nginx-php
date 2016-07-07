@@ -12,8 +12,8 @@ RUN apk --update add php5-fpm php5-json php5-zlib php5-xml php5-phar php5-gd php
   curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer
 
 COPY conf/nginx/app.conf /etc/nginx/conf.d/app.conf
-COPY conf/php/php.ini /etc/php5/php.ini
-COPY conf/php/php-fpm.conf /etc/php5/php-fpm.conf
+COPY conf/php/app-php.ini /etc/php5/conf.d/zz_app.ini
+COPY conf/php/app-fpm.conf /etc/php5/fpm.d/zz_app.conf
 
 COPY scripts /scripts
 RUN chmod -R 755 /scripts
