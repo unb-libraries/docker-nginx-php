@@ -14,9 +14,8 @@ RUN apk --update add php7-fpm@testing php7-json@testing php7-zlib@testing php7-x
   curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer
 
 COPY conf/nginx/app.conf /etc/nginx/conf.d/app.conf
-COPY conf/php/php.ini /etc/php7/php.ini
-COPY conf/php/php-fpm.conf /etc/php7/php-fpm.conf
-COPY conf/php/www.conf /etc/php7/php-fpm.d/www.conf
+COPY conf/php/app-php.ini /etc/php7/conf.d/zz_app.ini
+COPY conf/php/app-php-fpm.conf /etc/php7/php-fpm.d/zz_app.conf
 
 COPY scripts /scripts
 RUN chmod -R 755 /scripts
