@@ -1,14 +1,14 @@
-# unblibraries/nginx-php:alpine [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine)](https://travis-ci.org/unb-libraries/docker-nginx-php) [![](https://badge.imagelayers.io/unblibraries/nginx-php:alpine.svg)](https://imagelayers.io/?images=unblibraries/nginx-php:alpine 'Get your own badge on imagelayers.io')
+# unblibraries/nginx-php:alpine [![](https://images.microbadger.com/badges/image/unblibraries/nginx-php:alpine.svg)](http://microbadger.com/images/unblibraries/nginx-php:alpine "Get your own image badge on microbadger.com") [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine)](https://travis-ci.org/unb-libraries/docker-nginx-php)
 
 Deploy a baseline ```php-fpm``` supported ```nginx``` app container with ```composer``` support.
 
 ## Repository Tags
-Two configurations are available, depending on your needs:
+Two configurations are available:
 
 |                 Tag                | PHP   | Size                                                                                                                                                                                 | Status                                                                                                                                               |
 |:----------------------------------:|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| unblibraries/nginx-php:alpine      | 5.6.x | [![](https://badge.imagelayers.io/unblibraries/nginx-php:alpine.svg)](https://imagelayers.io/?images=unblibraries/nginx-php:alpine 'Get your own badge on imagelayers.io')           | [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine)](https://travis-ci.org/unb-libraries/docker-nginx-php)      |
-| unblibraries/nginx-php:alpine-php7 | 7.0.x | [![](https://badge.imagelayers.io/unblibraries/nginx-php:alpine-php7.svg)](https://imagelayers.io/?images=unblibraries/nginx-php:alpine-php7 'Get your own badge on imagelayers.io') | [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine-php7)](https://travis-ci.org/unb-libraries/docker-nginx-php) |
+| unblibraries/nginx-php:alpine      | 5.6.x | [![](https://images.microbadger.com/badges/image/unblibraries/nginx-php:alpine.svg)](http://microbadger.com/images/unblibraries/nginx-php:alpine "Get your own image badge on microbadger.com")           | [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine)](https://travis-ci.org/unb-libraries/docker-nginx-php)      |
+| unblibraries/nginx-php:alpine-php7 | 7.0.x | [![](https://images.microbadger.com/badges/image/unblibraries/nginx-php:alpine-php7.svg)](http://microbadger.com/images/unblibraries/nginx-php:alpine-php7 "Get your own image badge on microbadger.com") | [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine-php7)](https://travis-ci.org/unb-libraries/docker-nginx-php) |
 
 ## Usage
 ```
