@@ -1,6 +1,10 @@
 FROM unblibraries/nginx:alpine
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
+LABEL ca.unb.lib.php="5"
+LABEL vcs-ref="alpine"
+LABEL vcs-url="https://github.com/unb-libraries/docker-nginx-php"
+
 ENV COMPOSER_PATH /usr/local/bin
 ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
 ENV PHP_PID_DIR /var/run/php
