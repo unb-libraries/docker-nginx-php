@@ -1,4 +1,4 @@
-FROM unblibraries/nginx:alpine
+FROM unblibraries/nginx:alpine-edge
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
 LABEL ca.unb.lib.php="7"
@@ -9,7 +9,8 @@ ENV COMPOSER_PATH /usr/local/bin
 ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
 ENV PHP_PID_DIR /var/run/php
 
-RUN apk --update add php7-fpm php7-json php7-zlib php7-xml php7-phar php7-iconv php7-mcrypt curl php7-curl php7-openssl php7-gd && \
+RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN apk --update add php7-fpm@testing php7-json@testing php7-zlib@testing php7-xml@testing php7-phar@testing php7-iconv@testing php7-mcrypt@testing curl php7-curl@testing php7-openssl@testing php7-gd@testing && \
   rm -f /var/cache/apk/* && \
   mkdir -p ${PHP_PID_DIR}/ && \
   chown ${NGINX_RUN_USER}:${NGINX_RUN_GROUP} ${PHP_PID_DIR}/ && \
