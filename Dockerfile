@@ -10,7 +10,7 @@ ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
 ENV PHP_PID_DIR /var/run/php
 
 RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk update && apk --update add php7@testing php7-fpm@testing php7-json@testing php7-zlib@testing php7-xml@testing php7-phar@testing php7-iconv@testing php7-mcrypt@testing curl php7-curl@testing php7-openssl@testing php7-gd@testing && \
+RUN apk --update add php7@testing php7-fpm@testing php7-json@testing php7-zlib@testing php7-xml@testing php7-phar@testing php7-iconv@testing php7-mcrypt@testing curl php7-curl@testing php7-openssl@testing php7-gd@testing && \
   rm -f /var/cache/apk/* && \
   mkdir -p ${PHP_PID_DIR}/ && \
   ln -s /etc/php7 /etc/php7 && \
