@@ -1,4 +1,4 @@
-FROM unblibraries/nginx:alpine-edge
+FROM unblibraries/nginx:alpine
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
 LABEL ca.unb.lib.php="7.1"
