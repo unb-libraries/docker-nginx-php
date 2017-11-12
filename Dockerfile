@@ -6,6 +6,7 @@ LABEL vcs-ref="alpine-php7"
 LABEL vcs-url="https://github.com/unb-libraries/docker-nginx-php"
 
 ENV COMPOSER_PATH /usr/local/bin
+ENV COMPOSER_EXIT_ON_PATCH_FAILURE 1
 ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
 ENV PHP_PID_DIR /var/run/php
 
