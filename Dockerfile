@@ -13,8 +13,7 @@ ENV PHP_PID_DIR /var/run/php
 COPY ./conf /conf
 COPY ./scripts /scripts
 
-RUN apk --update add php7 php7-fpm php7-json php7-zlib php7-xml php7-phar php7-iconv php7-mcrypt curl php7-curl php7-openssl php7-gd && \
-  rm -f /var/cache/apk/* && \
+RUN apk --no-cache add php7 php7-fpm php7-json php7-zlib php7-xml php7-phar php7-iconv php7-mcrypt curl php7-curl php7-openssl php7-gd && \
   mkdir -p ${PHP_PID_DIR}/ && \
   chown ${NGINX_RUN_USER}:${NGINX_RUN_GROUP} ${PHP_PID_DIR}/ && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer && \
