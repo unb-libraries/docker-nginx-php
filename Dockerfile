@@ -1,7 +1,7 @@
 FROM unblibraries/nginx:alpine
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
-LABEL ca.unb.lib.php="7.1"
+LABEL ca.unb.lib.php="7.2"
 LABEL vcs-ref="alpine-php7"
 LABEL vcs-url="https://github.com/unb-libraries/docker-nginx-php"
 
