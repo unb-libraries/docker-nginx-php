@@ -1,9 +1,11 @@
 FROM unblibraries/nginx:alpine
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
-LABEL ca.unb.lib.php="7.2"
-LABEL vcs-ref="alpine-php7"
-LABEL vcs-url="https://github.com/unb-libraries/docker-nginx-php"
+LABEL ca.unb.lib.php="7.2" \
+      org.label-schema.schema-version="1.0" \
+      org.label-schema.vcs-ref="alpine-php7" \
+      org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
+      org.label-schema.vendor="University of New Brunswick Libraries"
 
 ENV COMPOSER_PATH /usr/local/bin
 ENV COMPOSER_EXIT_ON_PATCH_FAILURE 1
