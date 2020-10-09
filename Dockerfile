@@ -9,6 +9,7 @@ LABEL ca.unb.lib.php="7.2" \
       org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
       org.label-schema.vendor="University of New Brunswick Libraries"
 
+ENV COMPOSER_MEMORY_LIMIT -1
 ENV COMPOSER_PATH /usr/local/bin
 ENV COMPOSER_EXIT_ON_PATCH_FAILURE 1
 ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
