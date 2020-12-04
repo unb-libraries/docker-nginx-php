@@ -1,7 +1,7 @@
 FROM unblibraries/nginx:alpine
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
-LABEL ca.unb.lib.php="7.2" \
+LABEL ca.unb.lib.php="7.3" \
       com.microscaling.docker.dockerfile=/Dockerfile \
       com.microscaling.license=MIT \
       org.label-schema.schema-version="1.0" \
