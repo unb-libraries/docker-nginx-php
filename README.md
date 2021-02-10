@@ -1,28 +1,23 @@
-# unblibraries/nginx-php:alpine [![](https://images.microbadger.com/badges/image/unblibraries/nginx-php:alpine-php7.svg)](http://microbadger.com/images/unblibraries/nginx-php:alpine-php7 "Get your own image badge on microbadger.com") [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine)](https://travis-ci.org/unb-libraries/docker-nginx-php)
-
-Deploy a baseline ```php-fpm``` supported ```nginx``` app container with ```composer``` support.
-
-## Repository Tags
-Two configurations are available, depending on your needs:
-
-|                 Tag                | PHP   | Size                                                                                                                                                                                 | Status                                                                                                                                               |
-|:----------------------------------:|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| unblibraries/nginx-php:alpine      | 5.6.x | [![](https://images.microbadger.com/badges/image/unblibraries/nginx-php:alpine.svg)](http://microbadger.com/images/unblibraries/nginx-php:alpine "Get your own image badge on microbadger.com")           | [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine)](https://travis-ci.org/unb-libraries/docker-nginx-php)      |
-| unblibraries/nginx-php:alpine-php7 | 7.x | [![](https://images.microbadger.com/badges/image/unblibraries/nginx-php:alpine-php7.svg)](http://microbadger.com/images/unblibraries/nginx-php:alpine-php7 "Get your own image badge on microbadger.com") | [![Build Status](https://travis-ci.org/unb-libraries/docker-nginx-php.svg?branch=alpine-php7)](https://travis-ci.org/unb-libraries/docker-nginx-php) |
+# unb-libraries/docker-nginx-php  [![](https://github.com/unb-libraries/docker-nginx-php/workflows/build-test-deploy/badge.svg?branch=1.x-7.x)](https://github.com/unb-libraries/docker-nginx-php/actions?query=workflow%3Abuild-test-deploy) [![GitHub license](https://img.shields.io/github/license/unb-libraries/docker-nginx-php)](https://github.com/unb-libraries/lib.unb.ca/blob/prod/LICENSE) ![GitHub repo size](https://img.shields.io/github/repo-size/unb-libraries/docker-nginx-php?label=lean%20repo%20size)
+A lightweight extensible nginx-php docker image, suitable for development or production deployments.
 
 ## Usage
 ```
 docker run \
        --rm \
-       --name nginx-php \
+       --name nginx \
        -v /local/dir:/app/html \
        -p 80:80 \
-       unblibraries/nginx-php:alpine
+       ghcr.io/unb-libraries/nginx-php:1.x-7.x
 ```
 
-## License
-- unblibraries/nginx-php is licensed under the MIT License:
-  - http://opensource.org/licenses/mit-license.html
-- Attribution is not required, but much appreciated:
-  - `Nginx PHP Docker Image by UNB Libraries`
+## Author / Contributors
+This application was created at [![UNB Libraries](https://github.com/unb-libraries/assets/raw/master/unblibbadge.png "UNB Libraries")](https://lib.unb.ca) by the following humans:
 
+<a href="https://github.com/JacobSanford"><img src="https://avatars.githubusercontent.com/u/244894?v=3" title="Jacob Sanford" width="128" height="128"></a>
+
+## License
+- As part of our 'open' ethos, UNB Libraries licenses its applications and workflows to be freely available to all whenever possible.
+- Consequently, the contents of this repository [unb-libraries/docker-nginx-php] are licensed under the [MIT License](http://opensource.org/licenses/mit-license.html). This license explicitly excludes:
+  - Any website content, which remains the exclusive property of its author(s).
+  - The UNB logo and any of the associated suite of visual identity assets, which remains the exclusive property of the University of New Brunswick.
