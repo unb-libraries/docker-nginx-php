@@ -1,13 +1,15 @@
-FROM unblibraries/nginx:alpine
+FROM ghcr.io/unb-libraries/nginx:1.x
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
-LABEL ca.unb.lib.php="7.2" \
-      com.microscaling.docker.dockerfile=/Dockerfile \
-      com.microscaling.license=MIT \
-      org.label-schema.schema-version="1.0" \
-      org.label-schema.vcs-ref="alpine-php7" \
-      org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
-      org.label-schema.vendor="University of New Brunswick Libraries"
+LABEL ca.unb.lib.generator="nginx" \
+  ca.unb.lib.php.version="7.3" \
+  org.label-schema.build-date=$BUILD_DATE \
+  org.label-schema.description="nginx-php is the base nginx/php-fpm image at UNB Libraries." \
+  org.label-schema.name="nginx-php" \
+  org.label-schema.url="https://github.com/unb-libraries/docker-nginx-php" \
+  org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
+  org.label-schema.version=$VERSION \
+  org.opencontainers.image.source="https://github.com/unb-libraries/docker-nginx-php"
 
 ENV COMPOSER_MEMORY_LIMIT -1
 ENV COMPOSER_PATH /usr/local/bin
