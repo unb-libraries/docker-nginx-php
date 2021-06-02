@@ -1,15 +1,5 @@
 FROM ghcr.io/unb-libraries/nginx:1.x
-MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
-
-LABEL ca.unb.lib.generator="nginx" \
-  ca.unb.lib.php.version="7.3" \
-  org.label-schema.build-date=$BUILD_DATE \
-  org.label-schema.description="nginx-php is the base nginx/php-fpm image at UNB Libraries." \
-  org.label-schema.name="nginx-php" \
-  org.label-schema.url="https://github.com/unb-libraries/docker-nginx-php" \
-  org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
-  org.label-schema.version=$VERSION \
-  org.opencontainers.image.source="https://github.com/unb-libraries/docker-nginx-php"
+MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV COMPOSER_MEMORY_LIMIT -1
 ENV COMPOSER_PATH /usr/local/bin
@@ -29,3 +19,13 @@ RUN apk --no-cache add php7 php7-fpm php7-json php7-zlib php7-xml php7-phar php7
   cp /conf/php/app-php-fpm.conf /etc/php7/php-fpm.d/zz_app.conf && \
   rm -f /etc/php7/php-fpm.d/www.conf && \
   chmod -R 755 /scripts
+
+LABEL ca.unb.lib.generator="nginx" \
+  ca.unb.lib.php.version="7.3" \
+  org.label-schema.build-date=$BUILD_DATE \
+  org.label-schema.description="nginx-php is the base nginx/php-fpm image at UNB Libraries." \
+  org.label-schema.name="nginx-php" \
+  org.label-schema.url="https://github.com/unb-libraries/docker-nginx-php" \
+  org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
+  org.label-schema.version=$VERSION \
+  org.opencontainers.image.source="https://github.com/unb-libraries/docker-nginx-php"
