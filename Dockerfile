@@ -1,4 +1,4 @@
-FROM ghcr.io/unb-libraries/nginx:1.x
+FROM ghcr.io/unb-libraries/nginx:1.x-alpine3.12
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV COMPOSER_MEMORY_LIMIT -1
