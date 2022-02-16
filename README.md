@@ -1,23 +1,16 @@
 # unb-libraries/docker-nginx-php  [![](https://github.com/unb-libraries/docker-nginx-php/workflows/build-test-deploy/badge.svg?branch=2.x)](https://github.com/unb-libraries/docker-nginx-php/actions?query=workflow%3Abuild-test-deploy) [![GitHub license](https://img.shields.io/github/license/unb-libraries/docker-nginx-php)](https://github.com/unb-libraries/lib.unb.ca/blob/prod/LICENSE) ![GitHub repo size](https://img.shields.io/github/repo-size/unb-libraries/docker-nginx-php?label=lean%20repo%20size)
 A lightweight extensible nginx-php docker image, suitable for development or production deployments.
 
+## Usage
+This image offers relatively no useful functionality on its own, but serves well as the base of other images. For an example how we extend this image, please see [unb-libraries/docker-nginx-drupal](https://github.com/unb-libraries/docker-drupal).
+
 ## Branches/Tags
-The currently maintained image/tag is **ghcr.io/unb-libraries/nginx-php:2.x**. The 1.x tag exists for legacy purposes only.
+The only currently maintained tag is **ghcr.io/unb-libraries/nginx-php:2.x**. The 1.x tag exists for legacy purposes only.
 
 |                  Tag                   | Nginx | Alpine | PHP | Composer |
 |:--------------------------------------:|-------|--------|-----|----------|
 |  ghcr.io/unb-libraries/nginx-php:2.x   | 1.20  | 1.15   | 7.4 | 2.x      |
 |  ghcr.io/unb-libraries/nginx-php:1.x   | 1.18  | 1.13   | 7.3 | 1.x      |
-
-## Usage
-```
-docker run \
-       --rm \
-       --name nginx \
-       -v /local/dir:/app/html \
-       -p 80:80 \
-       ghcr.io/unb-libraries/nginx-php:2.x
-```
 
 ## Author / Contributors
 This application was created at [![UNB Libraries](https://github.com/unb-libraries/assets/raw/master/unblibbadge.png "UNB Libraries")](https://lib.unb.ca) by the following humans:
