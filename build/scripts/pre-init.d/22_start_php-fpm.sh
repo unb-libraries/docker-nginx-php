@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-/usr/sbin/php-fpm7
+/usr/sbin/php-fpm8
