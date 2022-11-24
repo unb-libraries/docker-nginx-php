@@ -1,13 +1,13 @@
-FROM ghcr.io/unb-libraries/nginx:2.x
+FROM ghcr.io/unb-libraries/nginx:3.x
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV COMPOSER_INSTALL "composer install --prefer-dist --no-interaction --no-progress"
 ENV COMPOSER_MEMORY_LIMIT -1
 ENV COMPOSER_PATH /usr/local/bin
 ENV COMPOSER_EXIT_ON_PATCH_FAILURE 1
-ENV PHP_CONFD_DIR /etc/php8/conf.d
+ENV PHP_CONFD_DIR /etc/php81/conf.d
 ENV PHP_APP_INI_FILE $PHP_CONFD_DIR/zz_app.ini
-ENV PHP_FPM_CONFD_DIR /etc/php8/php-fpm.d
+ENV PHP_FPM_CONFD_DIR /etc/php81/php-fpm.d
 ENV PHP_FPM_APP_CONF_FILE $PHP_FPM_CONFD_DIR/zz_app.conf
 ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
 ENV PHP_PID_DIR /var/run/php
@@ -15,17 +15,16 @@ ENV PHP_PID_DIR /var/run/php
 COPY ./build /build
 
 RUN apk --no-cache add \
-    php8 \
-    php8-curl \
-    php8-fpm \
-    php8-gd \
-    php8-iconv \
-    php8-json \
-    php8-openssl \
-    php8-phar \
-    php8-xml \
-    php8-zlib && \
-  ln -s /usr/bin/php8 /usr/bin/php && \
+    php81 \
+    php81-curl \
+    php81-fpm \
+    php81-gd \
+    php81-iconv \
+    php81-json \
+    php81-openssl \
+    php81-phar \
+    php81-xml \
+    php81-zlib && \
   mkdir -p "$PHP_PID_DIR/" && \
   chown "$NGINX_RUN_USER":"$NGINX_RUN_GROUP" "$PHP_PID_DIR/" && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir="$COMPOSER_PATH" --filename=composer && \
