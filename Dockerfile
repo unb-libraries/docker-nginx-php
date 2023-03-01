@@ -10,6 +10,7 @@ ENV PHP_APP_INI_FILE $PHP_CONFD_DIR/zz_app.ini
 ENV PHP_FPM_CONFD_DIR /etc/php81/php-fpm.d
 ENV PHP_FPM_APP_CONF_FILE $PHP_FPM_CONFD_DIR/zz_app.conf
 ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
+ENV PHP_FPM_SOCK_PATH /var/run/php/php-fpm81.sock
 ENV PHP_PID_DIR /var/run/php
 
 COPY ./build /build
