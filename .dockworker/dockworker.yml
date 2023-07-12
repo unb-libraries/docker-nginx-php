@@ -11,9 +11,9 @@ dockworker:
     topics:
       - nginx
       - php
-  image:
-    name: ghcr.io/unb-libraries/nginx-php
   workflows:
+    image:
+      name: ghcr.io/unb-libraries/nginx-php
     vcs:
       type: github
       owner: unb-libraries
