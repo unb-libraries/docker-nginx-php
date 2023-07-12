@@ -1,0 +1,20 @@
+{
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  },
+  "description": "Builds the base ghcr.io/unb-libraries/nginx/php image.",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "name": "unb-libraries/docker-nginx-php",
+  "prefer-stable": true,
+  "require-dev": {
+    "unb-libraries/dockworker-baseimage": "6.x-dev"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "vendor/bin/dockworker git:setup-hooks"
+    ]
+  }
+}

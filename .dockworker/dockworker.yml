@@ -1,0 +1,20 @@
+dockworker:
+  version: '6'
+  application:
+    description: A lightweight extensible nginx/PHP docker image, suitable for development or production deployments.
+    uri: https://github.com/unb-libraries/docker-nginx-php
+    identifiers:
+      id: docker-nginx-php
+      slug: docker-nginx-php
+      short_slug: basenginxphp
+      uuid: 6001
+    topics:
+      - nginx
+      - php
+  image:
+    name: ghcr.io/unb-libraries/nginx-php
+  workflows:
+    vcs:
+      type: github
+      owner: unb-libraries
+      name: docker-nginx-php
