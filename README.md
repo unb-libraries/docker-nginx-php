@@ -5,10 +5,11 @@ A lightweight extensible nginx-php docker image, suitable for development or pro
 This image offers relatively no useful functionality on its own, but serves well as the base of other images. For an example how we extend this image, please see [unb-libraries/docker-nginx-drupal](https://github.com/unb-libraries/docker-drupal).
 
 ## Branches/Tags
-The only currently maintained tag is **ghcr.io/unb-libraries/nginx-php:2.x**. The 1.x tag exists for legacy purposes only.
+The only currently maintained tag is **ghcr.io/unb-libraries/nginx-php:3.x**. The 2.x and 1.x tags exist for legacy purposes only.
 
 |                  Tag                   | Nginx | Alpine | PHP | Composer |
 |:--------------------------------------:|-------|--------|-----|----------|
+|  ghcr.io/unb-libraries/nginx-php:3.x   | 1.22  | 3.17   | 8.1 | 2.x      |
 |  ghcr.io/unb-libraries/nginx-php:2.x   | 1.20  | 1.15   | 7.4 | 2.x      |
 |  ghcr.io/unb-libraries/nginx-php:1.x   | 1.18  | 1.13   | 7.3 | 1.x      |
 
