@@ -1,4 +1,4 @@
-FROM ghcr.io/unb-libraries/nginx:3.17.x
+FROM ghcr.io/unb-libraries/nginx:3.18.x
 
 ENV COMPOSER_INSTALL "composer install --prefer-dist --no-interaction --no-progress"
 ENV COMPOSER_MEMORY_LIMIT -1
