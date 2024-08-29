@@ -1,5 +1,4 @@
 FROM ghcr.io/unb-libraries/nginx:2.x
-MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV COMPOSER_INSTALL=""composer install --prefer-dist --no-interaction --no-progress""
 ENV COMPOSER_MEMORY_LIMIT="-1"
@@ -44,4 +43,5 @@ LABEL ca.unb.lib.generator="php-fpm" \
   org.label-schema.url="https://github.com/unb-libraries/docker-nginx-php" \
   org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
   org.label-schema.version=$VERSION \
+  org.opencontainers.image.authors="UNB Libraries <libsupport@unb.ca>" \
   org.opencontainers.image.source="https://github.com/unb-libraries/docker-nginx-php"
