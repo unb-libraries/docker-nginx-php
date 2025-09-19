@@ -36,7 +36,7 @@ RUN apk --no-cache add \
   chmod -R 755 /scripts
 
 LABEL ca.unb.lib.generator="php-fpm" \
-  ca.unb.lib.php.version="8.0" \
+  ca.unb.lib.php.version="8.3" \
   org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.description="nginx-php is the base nginx/php-fpm image at UNB Libraries." \
   org.label-schema.name="nginx-php" \
