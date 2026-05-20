@@ -1,16 +1,16 @@
 FROM ghcr.io/unb-libraries/nginx:3.22.x
 
-ENV COMPOSER_INSTALL "composer install --prefer-dist --no-interaction --no-progress"
-ENV COMPOSER_MEMORY_LIMIT -1
-ENV COMPOSER_PATH /usr/local/bin
-ENV COMPOSER_EXIT_ON_PATCH_FAILURE 1
-ENV PHP_CONFD_DIR /etc/php83/conf.d
-ENV PHP_APP_INI_FILE $PHP_CONFD_DIR/zz_app.ini
-ENV PHP_FPM_CONFD_DIR /etc/php83/php-fpm.d
-ENV PHP_FPM_APP_CONF_FILE $PHP_FPM_CONFD_DIR/zz_app.conf
-ENV PHP_FPM_ERROR_LOG /proc/self/fd/2
-ENV PHP_FPM_SOCK_PATH /var/run/php/php-fpm83.sock
-ENV PHP_PID_DIR /var/run/php
+ENV COMPOSER_INSTALL="composer install --prefer-dist --no-interaction --no-progress"
+ENV COMPOSER_MEMORY_LIMIT=-1
+ENV COMPOSER_PATH=/usr/local/bin
+ENV COMPOSER_EXIT_ON_PATCH_FAILURE=1
+ENV PHP_CONFD_DIR=/etc/php85/conf.d
+ENV PHP_APP_INI_FILE=$PHP_CONFD_DIR/zz_app.ini
+ENV PHP_FPM_CONFD_DIR=/etc/php85/php-fpm.d
+ENV PHP_FPM_APP_CONF_FILE=$PHP_FPM_CONFD_DIR/zz_app.conf
+ENV PHP_FPM_ERROR_LOG=/proc/self/fd/2
+ENV PHP_FPM_SOCK_PATH=/var/run/php/php-fpm85.sock
+ENV PHP_PID_DIR=/var/run/php
 
 COPY ./build /build
 
