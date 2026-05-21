@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-/usr/sbin/php-fpm84
+exec "$PHP_FPM_BIN"
