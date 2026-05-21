@@ -1,30 +1,31 @@
-FROM ghcr.io/unb-libraries/nginx:3.22.x
+FROM ghcr.io/unb-libraries/nginx:3.23.x
 
 ENV COMPOSER_INSTALL="composer install --prefer-dist --no-interaction --no-progress"
 ENV COMPOSER_MEMORY_LIMIT=-1
 ENV COMPOSER_PATH=/usr/local/bin
 ENV COMPOSER_EXIT_ON_PATCH_FAILURE=1
-ENV PHP_CONFD_DIR=/etc/php85/conf.d
+ENV PHP_CONFD_DIR=/etc/php84/conf.d
 ENV PHP_APP_INI_FILE=$PHP_CONFD_DIR/zz_app.ini
-ENV PHP_FPM_CONFD_DIR=/etc/php85/php-fpm.d
+ENV PHP_FPM_CONFD_DIR=/etc/php84/php-fpm.d
 ENV PHP_FPM_APP_CONF_FILE=$PHP_FPM_CONFD_DIR/zz_app.conf
 ENV PHP_FPM_ERROR_LOG=/proc/self/fd/2
-ENV PHP_FPM_SOCK_PATH=/var/run/php/php-fpm85.sock
+ENV PHP_FPM_SOCK_PATH=/var/run/php/php-fpm84.sock
 ENV PHP_PID_DIR=/var/run/php
 
 COPY ./build /build
 
 RUN apk --no-cache add \
-    php83 \
-    php83-curl \
-    php83-fpm \
-    php83-gd \
-    php83-iconv \
-    php83-json \
-    php83-openssl \
-    php83-phar \
-    php83-xml \
-    php83-zlib && \
+    php84 \
+    php84-cli \
+    php84-curl \
+    php84-fpm \
+    php84-gd \
+    php84-iconv \
+    php84-json \
+    php84-openssl \
+    php84-phar \
+    php84-xml \
+    php84-zlib && \
   mkdir -p "$PHP_PID_DIR/" && \
   chown "$NGINX_RUN_USER":"$NGINX_RUN_GROUP" "$PHP_PID_DIR/" && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir="$COMPOSER_PATH" --filename=composer && \
