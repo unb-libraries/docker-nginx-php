@@ -28,7 +28,8 @@ RUN apk --no-cache add \
     php${PHP_VERSION}-openssl \
     php${PHP_VERSION}-phar \
     php${PHP_VERSION}-xml \
-    php${PHP_VERSION}-zlib && \
+    php${PHP_VERSION}-zlib \
+    tini && \
   mkdir -p "$PHP_PID_DIR/" && \
   chown "$NGINX_RUN_USER":"$NGINX_RUN_GROUP" "$PHP_PID_DIR/" && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir="$COMPOSER_PATH" --filename=composer && \
@@ -38,6 +39,11 @@ RUN apk --no-cache add \
   rm -f $PHP_FPM_CONFD_DIR/www.conf && \
   $RSYNC_COPY /build/scripts/ /scripts/ && \
   chmod -R 755 /scripts
+
+# tini as PID 1: reap zombies and (-g) forward signals to the whole process
+# group, so SIGQUIT on pod stop drains both nginx and the backgrounded php-fpm.
+STOPSIGNAL SIGQUIT
+ENTRYPOINT ["/sbin/tini", "-g", "--", "/scripts/run.sh"]
 
 LABEL ca.unb.lib.generator="php-fpm" \
   ca.unb.lib.php.version=$PHP_VERSION_DOTTED \
