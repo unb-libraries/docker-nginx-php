@@ -45,6 +45,8 @@ RUN apk --no-cache add \
 STOPSIGNAL SIGQUIT
 ENTRYPOINT ["/sbin/tini", "-g", "--", "/scripts/run.sh"]
 
+ARG BUILD_DATE
+ARG VERSION
 LABEL ca.unb.lib.generator="php-fpm" \
   ca.unb.lib.php.version=$PHP_VERSION_DOTTED \
   org.label-schema.build-date=$BUILD_DATE \
