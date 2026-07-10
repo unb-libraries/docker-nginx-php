@@ -37,11 +37,10 @@ RUN apk --no-cache add \
 
 LABEL ca.unb.lib.generator="php-fpm" \
   ca.unb.lib.php.version="7.4" \
-  org.label-schema.build-date=$BUILD_DATE \
-  org.label-schema.description="nginx-php is the base nginx/php-fpm image at UNB Libraries." \
-  org.label-schema.name="nginx-php" \
-  org.label-schema.url="https://github.com/unb-libraries/docker-nginx-php" \
-  org.label-schema.vcs-url="https://github.com/unb-libraries/docker-nginx-php" \
-  org.label-schema.version=$VERSION \
+  org.opencontainers.image.title="nginx-php" \
+  org.opencontainers.image.description="nginx-php is the base nginx/php-fpm image at UNB Libraries." \
   org.opencontainers.image.authors="UNB Libraries <libsupport@unb.ca>" \
-  org.opencontainers.image.source="https://github.com/unb-libraries/docker-nginx-php"
+  org.opencontainers.image.url="https://github.com/unb-libraries/docker-nginx-php" \
+  org.opencontainers.image.source="https://github.com/unb-libraries/docker-nginx-php" \
+  org.opencontainers.image.version="$VERSION" \
+  org.opencontainers.image.created="$BUILD_DATE"
