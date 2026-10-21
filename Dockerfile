@@ -1,11 +1,11 @@
-FROM ghcr.io/unb-libraries/nginx:3.23.x
+FROM ghcr.io/unb-libraries/nginx:3.22.x
 
 ENV COMPOSER_INSTALL="composer install --prefer-dist --no-interaction --no-progress"
 ENV COMPOSER_MEMORY_LIMIT=-1
 ENV COMPOSER_PATH=/usr/local/bin
 ENV COMPOSER_EXIT_ON_PATCH_FAILURE=1
-ENV PHP_VERSION=84
-ENV PHP_VERSION_DOTTED=8.4
+ENV PHP_VERSION=82
+ENV PHP_VERSION_DOTTED=8.2
 ENV PHP_FPM_BIN=/usr/sbin/php-fpm${PHP_VERSION}
 ENV PHP_CONFD_DIR=/etc/php${PHP_VERSION}/conf.d
 ENV PHP_APP_INI_FILE=$PHP_CONFD_DIR/zz_app.ini
@@ -30,6 +30,8 @@ RUN apk --no-cache add \
     php${PHP_VERSION}-xml \
     php${PHP_VERSION}-zlib \
     tini && \
+  # php82 is not Alpine 3.22's default PHP, so nothing provides /usr/bin/php.
+  ln -sf "/usr/bin/php${PHP_VERSION}" /usr/bin/php && \
   mkdir -p "$PHP_PID_DIR/" && \
   chown "$NGINX_RUN_USER":"$NGINX_RUN_GROUP" "$PHP_PID_DIR/" && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir="$COMPOSER_PATH" --filename=composer && \
