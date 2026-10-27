@@ -1,3 +1,25 @@
+# Rebuild Alpine's php82 at the upstream security release until Alpine ships it.
+# CVE-2026-109618 / CVE-2026-109619: https://www.php.net/archive/2026.php#2026-10-21-5
+# Remove this stage and build/php-apk once v3.22 community has php82 >= 8.2.35.
+FROM alpine:3.22 AS php-apk
+ENV PACKAGER="UNB Libraries <libsupport@unb.ca>"
+RUN apk add alpine-sdk && \
+  adduser -D builder && \
+  addgroup builder abuild
+COPY --chown=builder ./build/php-apk /home/builder/php-apk
+# abuild -r installs makedepends through setuid abuild-apk, which fails under
+# QEMU for the arm64 build. Install them as root and build with -d instead.
+RUN cd /home/builder/php-apk/php82 && \
+  . ./APKBUILD && \
+  apk add $(for d in $makedepends; do case "$d" in "$pkgname"*) ;; *) echo "$d" ;; esac; done)
+USER builder
+RUN abuild-keygen -an
+USER root
+RUN cp /home/builder/.abuild/*.rsa.pub /etc/apk/keys/
+USER builder
+WORKDIR /home/builder/php-apk/php82
+RUN abuild -d
+
 FROM ghcr.io/unb-libraries/nginx:3.22.x
 
 ENV COMPOSER_INSTALL="composer install --prefer-dist --no-interaction --no-progress"
@@ -14,6 +36,12 @@ ENV PHP_FPM_APP_CONF_FILE=$PHP_FPM_CONFD_DIR/zz_app.conf
 ENV PHP_FPM_ERROR_LOG=/proc/self/fd/2
 ENV PHP_FPM_SOCK_PATH=/var/run/php/php-fpm${PHP_VERSION}.sock
 ENV PHP_PID_DIR=/var/run/php
+
+# Serve the rebuilt packages as a local repository so this and all downstream
+# php82-* installs (extensions, site ADDITIONAL_OS_PACKAGES) resolve to the same build.
+COPY --from=php-apk /home/builder/packages/php-apk /opt/php-apk
+COPY --from=php-apk /home/builder/.abuild/*.rsa.pub /etc/apk/keys/
+RUN echo "/opt/php-apk" >> /etc/apk/repositories
 
 COPY ./build /build
 
@@ -40,6 +68,7 @@ RUN apk --no-cache add \
   $RSYNC_COPY /build/conf/php/app-php-fpm.conf "$PHP_FPM_APP_CONF_FILE" && \
   rm -f $PHP_FPM_CONFD_DIR/www.conf && \
   $RSYNC_COPY /build/scripts/ /scripts/ && \
+  rm -rf /build/php-apk && \
   chmod -R 755 /scripts
 
 # tini as PID 1: reap zombies and (-g) forward signals to the whole process
