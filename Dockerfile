@@ -20,7 +20,7 @@ USER builder
 WORKDIR /home/builder/php-apk/php84
 RUN abuild -d
 
-FROM ghcr.io/unb-libraries/nginx:3.23.x
+FROM ghcr.io/unb-libraries/nginx:3.24.x
 
 ENV COMPOSER_INSTALL="composer install --prefer-dist --no-interaction --no-progress"
 ENV COMPOSER_MEMORY_LIMIT=-1
